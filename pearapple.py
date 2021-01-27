@@ -31,7 +31,7 @@ def predict(x):
     if value == 1:
         return True
     else:
-        return False
+         return False
 
 
 # preProcess(img) tries to remove shadows from grayscale image img
@@ -83,7 +83,7 @@ def main():
         red = cv2.medianBlur(red,5)
         green = cv2.medianBlur(green,5)
 
-        # Get a mask by threshholding red and green values
+        # Get a mask by thresholding red and green values
         red_max = np.max(red)
         red_min = np.min(red)
         green_max = np.max(green)
