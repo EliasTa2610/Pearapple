@@ -44,7 +44,7 @@ Note the -l flag: the leaf in the picture is accounted for and the bounding rect
 
 * The learning step is done via a logistic regression model, using the facilities provided by the Scikit-learn library.
 
-* The various constants, kernel sizes etc. found in the code were chosen purely empirically based on their performance on several test inputs.
+* The various constants, kernel sizes etc. found in the code were chosen empirically, that is based on their performance on several test inputs.
 
 # Remarks
 * The algorithm is meant to process pictures of individual fruits and will therefore not give meaningful results for pictures containing several of them. The background of the picture is assumed to be more or less uniform. Furthermore, the algorithm does not work if the fruit in the question is flush against the frame of the picture. This will be rectified in a future version. 
