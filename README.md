@@ -25,3 +25,8 @@ optional arguments:
 # Example
 
 ![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex.jpg?raw=true)
+
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
