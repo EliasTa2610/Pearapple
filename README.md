@@ -27,10 +27,20 @@ optional arguments:
 # Example
 Doing
 ```python3
+pearapple.py Test_Examples/apple0.jpg
+```
+will print "This is probably an apple" and produce the image
+
+![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex1.jpg?raw=true)
+
+
+On the other hand, doing
+```python3
 pearapple.py Test_Examples/pear1.jpg -l
 ```
 will print "This is probably a pear" and produce the image
 
-![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex.jpg?raw=true)
+![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex0.jpg?raw=true)
 
+Note the -l flag: the leaf in the picture is accounted for and not acounted in the derivation of the bounding rectangle
 
