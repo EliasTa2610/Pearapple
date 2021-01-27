@@ -29,7 +29,7 @@ def predict(x):
     x = np.array([x])
     value = train_model.predict(x.reshape(-1,1))
     if value == 1:
-       return True
+        return True
     else:
         return False
 
