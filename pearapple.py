@@ -94,6 +94,7 @@ def main():
         cutoff_green = green_max - (0.75*green_range)
         leaf_mask = np.where((red < cutoff_red) & (green > cutoff_green), 255 , 0)
         leaf_mask = leaf_mask.astype(np.uint8)
+
     else:
         leaf_mask = np.zeros(img.shape[:2], np.uint8) # no mask for leaf
         it = 6 # less aggressive no. of iterations for erode morph. op.
