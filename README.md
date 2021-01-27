@@ -2,7 +2,7 @@
 Short program to try to tell whether picture is that of an apple or that of a pear.
 
 # Introduction
-I was playing around with the OpenCV and Scikit-learn libraries. I decided a fun little project would be to write a program that guesses whether a picture is that of an apple or that of a pear based on geometric features of the two fruits. In the end, looking at the ratio of the sides of a minimum area bounding rectangle turned out to give a somewhat reliable classifying scheme. This ratio is close to 1 and close to 1.3 for apples and pears respectively. A training set (stored as data.npy) was used on a logistic regression model (pickled in train_model.pkl) in order to generate the predictions.
+I was playing around with the OpenCV and Scikit-learn libraries. I decided a fun little project would be to write a program that guesses whether a picture shown to it is that of an apple or that of a pear based on geometric features of the two fruits. In the end, looking at the ratio of the sides of a minimum area bounding rectangle turned out to give a somewhat reliable classifying scheme. This ratio is close to 1 and close to 1.3 for apples and pears respectively. A training set (stored as data.npy) was used on a logistic regression model (pickled in train_model.pkl) in order to generate the predictions.
 
 # Usage
 pearapple.py [-h] [-l] path_to_img
