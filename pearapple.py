@@ -27,7 +27,7 @@ with open(pkl_filename, 'rb') as file:
 #   predict(2) => False
 def predict(x):
     x = np.array([x])
-    value = train_model.predict(x.reshape(-1,1))
+    value = train_model.predict(x.reshape(-1, 1))
     if value == 1:
         return True
     else:
@@ -39,7 +39,7 @@ def predict(x):
 #   a median blur to img
 # preProcess: (array of Int) -> (array of Int)
 def preProcess(img):
-    dilated_img = cv2.dilate(img, np.ones((5,5), np.uint8))
+    dilated_img = cv2.dilate(img, np.ones((5, 5), np.uint8))
     bg_img = cv2.medianBlur(dilated_img, 21)
     diff_img = 255 - cv2.absdiff(img, bg_img)
     norm_img = diff_img.copy() # Needed for 3.x compatibility
@@ -72,7 +72,7 @@ def main():
         Z = np.float32(Z)
         criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
         K = 11
-        ret,label,center=cv2.kmeans(Z,K,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
+        ret,label,center=cv2.kmeans(Z, K, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
         center = np.uint8(center)
         res = center[label.flatten()]
         res2 = res.reshape((img.shape))
@@ -80,8 +80,8 @@ def main():
         # Get red and green channels and smooth them out
         red = res2[:, :, 2]
         green = res2[:, :, 1]
-        red = cv2.medianBlur(red,5)
-        green = cv2.medianBlur(green,5)
+        red = cv2.medianBlur(red, 5)
+        green = cv2.medianBlur(green, 5)
 
         # Get a mask by thresholding red and green values
         red_max = np.max(red)
@@ -110,7 +110,7 @@ def main():
     kernel = (5, 5)
     dilation = cv2.dilate(edges, kernel, iterations = 11)
     floodfill = dilation.copy()
-    cv2.floodFill(floodfill, mask2, (0,0), 255)
+    cv2.floodFill(floodfill, mask2, (0, 0), 255)
     floodfill = cv2.bitwise_not(floodfill)
     cutout = (dilation | floodfill) & ~leaf_mask
     cutout =  cv2.erode(cutout, (5,5), iterations=it)
@@ -132,7 +132,7 @@ def main():
     # Draw cutout with bounding rect.
     box = cv2.boxPoints(rect)
     box = np.int0(box)
-    cv2.drawContours(img,[box],0,(0, 0, 255),2)
+    cv2.drawContours(img,[box], 0, (0, 0, 255), 2)
     cv2.imshow("Bounding rectangle", img)
     cv2.waitKey(0)
 
