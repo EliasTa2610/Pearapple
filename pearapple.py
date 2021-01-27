@@ -135,6 +135,7 @@ def main():
     cv2.drawContours(img,[box],0,(0, 0, 255),2)
     cv2.imshow("Bounding rectangle", img)
     cv2.waitKey(0)
+
     return
 
 
