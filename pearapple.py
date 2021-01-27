@@ -6,7 +6,7 @@ import pickle
 
 # Create parser for command line arguments
 parser = argparse.ArgumentParser(description='Tell whether picture is that of an apple or a pear.')
-parser.add_argument("path", help="Path to image.")
+parser.add_argument("path_to_img", help="Path to image.")
 parser.add_argument("-l", "--leaf", help="Use if there is a leaf in the picture.", action="store_true", default=False)
 args = parser.parse_args()
 
@@ -49,18 +49,18 @@ def preProcess(img):
 
 # main() is a method for recognizing whether a picture is that of an apple
 #      or that of a pear
-# Effects: Reads file 'path' passed from command line. If "--leaf" flag is one, create mask to occult leaf.
+# Effects: Reads file 'path_to_img' passed from command line. If "--leaf" flag is one, create mask to occult leaf.
 #      Prints "This is probably an apple" or "This is probably a pear" and shows cutout version of fruit with a
 #      bounding box.
 # main: None -> None
 # Examples:
-#   For args.path = Test_Examples/apple0.jpg => Shows picture, prints "This is probably an
+#   For args.path_to_img = Test_Examples/apple0.jpg => Shows picture, prints "This is probably an
 #       apple"
-#   For args.path = Test_Examples/pear1.jpg, args.leaf=True => Shows picture, prints "This is
+#   For args.path_to_img = Test_Examples/pear1.jpg, args.leaf=True => Shows picture, prints "This is
 #       probably a pear"
 def main():
     # load image data
-    img = cv2.imread(args.path, cv2.IMREAD_COLOR)
+    img = cv2.imread(args.path_to_img, cv2.IMREAD_COLOR)
 
     # Check leaf flag. If true, try to get a mask for leaf in img. First
     # simplify img with k means clustering.
