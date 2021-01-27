@@ -42,5 +42,5 @@ will print "This is probably a pear" and produce the image
 
 ![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex0.jpg?raw=true)
 
-Note the -l flag: the leaf in the picture is accounted for and not acounted in the derivation of the bounding rectangle
+Note the -l flag: the leaf in the picture is accounted for and and the bounding rectangle ignores it
 
