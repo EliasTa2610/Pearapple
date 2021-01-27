@@ -17,7 +17,7 @@ optional arguments:
 # Libraries
 * The program uses a number of standard procedures from computer vision and image processing provided by the OpenCV library, namely canny edge detection, k means clustering, morphological operators, contour detection etc. These techniques are marshalled in order to obtain a cutout mask of the fruit without the background details, and from there a bounding rectangle from which whether the fruit is an apple or pear can be guessed.
 
-* The learning step is done via logistic regression model, using the facilities provided by the Scikit-learn library.
+* The learning step is done via logistic regression model, using the facilities provided by the library Scikit-learn.
 
 # Remarks
-* The algorithm is meant to process pictures of individual fruits and will therefore not give meaningful results for pictures containing several fruits. The background of the picture is assumed to be more or less uniform. Furthermore, the algorithm does not work if the fruit in the question is flush against the frame of the picture. This last issue will possibly be rectified in a future version. 
+* The algorithm is meant to process pictures of individual fruits and will therefore not give meaningful results for pictures containing several fruits. The background of the picture is assumed to be more or less uniform. Furthermore, the algorithm does not work if the fruit in the question is flush against the frame of the picture. This will be rectified in a future version. 

@@ -65,7 +65,8 @@ def main():
     # Check leaf flag. If true, try to get a mask for leaf in img. First
     # simplify img with k means clustering.
     if args.leaf:
-        it = 15 # aggressive no. of iterations for erode morph. trans. later on
+        it = 15 # aggressive no. of iterations for erode morph. op. later on
+
         # k means clustering
         Z = img.reshape((-1,3))
         Z = np.float32(Z)
@@ -95,7 +96,7 @@ def main():
         leaf_mask = leaf_mask.astype(np.uint8)
     else:
         leaf_mask = np.zeros(img.shape[:2], np.uint8) # no mask for leaf
-        it = 6 # less aggressive no. of iterations for erode morph. trans.
+        it = 6 # less aggressive no. of iterations for erode morph. op.
 
     # Preprocess img
     pimg = preProcess(img) # get rid of shadows in img
