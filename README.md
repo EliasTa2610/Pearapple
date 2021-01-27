@@ -42,7 +42,7 @@ Note the -l flag: the leaf in the picture is accounted for and the bounding rect
 
 * Uses a number of standard procedures from computer vision and image processing provided by the OpenCV library, namely canny edge detection, k means clustering, morphological operators, contour detection etc. These techniques are marshalled in order to obtain a cutout mask of the fruit without the background details, and from there a bounding rectangle from which whether the fruit is an apple or pear can be guessed.
 
-* The learning step is done via logistic regression model, using the facilities provided by the Scikit-learn library.
+* The learning step is done via a logistic regression model, using the facilities provided by the Scikit-learn library.
 
 * The various constants, kernel sizes etc. found in the code were chosen purely empirically based on their performance on several test inputs.
 
