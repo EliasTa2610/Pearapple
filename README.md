@@ -24,7 +24,7 @@ optional arguments:
 # Remarks
 * The algorithm is meant to process pictures of individual fruits and will therefore not give meaningful results for pictures containing several fruits. The background of the picture is assumed to be more or less uniform. Furthermore, the algorithm does not work if the fruit in the question is flush against the frame of the picture. This will be rectified in a future version. 
 
-# Example
+# Examples
 Doing
 ```python3
 pearapple.py Test_Examples/apple0.jpg
