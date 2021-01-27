@@ -77,13 +77,13 @@ def main():
         res = center[label.flatten()]
         res2 = res.reshape((img.shape))
 
-        # get red and green channels and smooth them out
+        # Get red and green channels and smooth them out
         red = res2[:, :, 2]
         green = res2[:, :, 1]
         red = cv2.medianBlur(red,5)
         green = cv2.medianBlur(green,5)
 
-        # get a mask by threshholding red and green values
+        # Get a mask by threshholding red and green values
         red_max = np.max(red)
         red_min = np.min(red)
         green_max = np.max(green)
@@ -102,7 +102,7 @@ def main():
     pimg = preProcess(img) # get rid of shadows in img
     gray = cv2.cvtColor(pimg, cv2.COLOR_BGR2GRAY) # work with grayscale version
 
-    # detect edges, dilate then find floodfill to get cutout of shape
+    # Detect edges, dilate then find floodfill to get cutout of shape
     mask = np.zeros(img.shape[:2], np.uint8)
     mask2 = np.zeros((img.shape[0] + 2, img.shape[1] + 2), np.uint8)
     _, image_thresh = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY_INV)
@@ -117,20 +117,19 @@ def main():
     contours, _ = cv2.findContours(cutout, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(mask, [max(contours, key = cv2.contourArea)], -1, 255, thickness=-1)
 
-    # find bounding rect. and return prediction of apple/pear based on the
+    # Find bounding rect. and return prediction of apple/pear based on the
     # ratio of its sides
     rect = cv2.minAreaRect(max(contours, key = cv2.contourArea))
     ratio = rect[1][0] / rect[1][1]
     if ratio < 1: # always return ratio of larger to smaller side
         ratio = 1/ratio
-    tvalue = predict(ratio)
-    if tvalue==True:
+    if predict(ratio):
         print("This is probably an apple")
-    if tvalue==False:
+    else:
         print("This is probably a pear")
 
 
-    # draw cutout with bounding rectangle
+    # Draw cutout with bounding rect.
     box = cv2.boxPoints(rect)
     box = np.int0(box)
     cv2.drawContours(img,[box],0,(0, 0, 255),2)

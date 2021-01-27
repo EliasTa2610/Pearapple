@@ -3,7 +3,7 @@ from sklearn.linear_model import LogisticRegression
 import pickle
 
 
-# create log. reg. object, load data and learn it
+# Create log. reg. object, load data and learn it
 logiReg = LogisticRegression(solver = 'lbfgs')
 data = np.load('data.npy')
 inputs = (data[:, 0]).reshape(-1, 1)
