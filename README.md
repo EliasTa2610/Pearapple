@@ -14,6 +14,10 @@ optional arguments:
   -h, --help   show this help message and exit
   -l, --leaf   Use if there is a leaf in the picture.
 
+# Output/Effect
+Prints "This is probably an apple" or "This is probably a pear" depending on the prediction. Shows a picture showing the bounding rectangle used in the algorithm superposed onto the original picture.
+
+
 # Technical
 * Written for Python 3
 
