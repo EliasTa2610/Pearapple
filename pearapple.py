@@ -6,7 +6,7 @@ import pickle
 
 # Create parser for command line arguments
 parser = argparse.ArgumentParser(description='Tell whether picture is that of an apple or a pear.')
-parser.add_argument("path_to_img", help="Path to image.")
+parser.add_argument("path_to_img", help="Path to image file.")
 parser.add_argument("-l", "--leaf", help="Use if there is a leaf in the picture.", action="store_true", default=False)
 args = parser.parse_args()
 
