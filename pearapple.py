@@ -114,7 +114,7 @@ def main():
     cv2.floodFill(floodfill, mask2, (0, 0), 255)
     floodfill = cv2.bitwise_not(floodfill)
     cutout = (dilation | floodfill) & ~leaf_mask
-    cutout =  cv2.erode(cutout, (5,5), iterations=it)
+    cutout =  cv2.erode(cutout, (5, 5), iterations = it)
     contours, _ = cv2.findContours(cutout, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(mask, [max(contours, key = cv2.contourArea)], -1, 255, thickness=-1)
 
