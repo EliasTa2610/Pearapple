@@ -35,7 +35,7 @@ will print "This is probably a pear" and produce the image
 
 ![alt text](https://github.com/EliasTa2610/Pearapple/blob/main/result_ex0.jpg?raw=true)
 
-Note the -l flag: the leaf in the picture is accounted for and the bounding rectangle ignores it
+Note the -l flag: the leaf in the picture is accounted for and the bounding rectangle tries to ignore it
 
 # Technical
 * Written for Python 3
