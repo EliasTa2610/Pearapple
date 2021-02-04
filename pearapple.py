@@ -21,7 +21,7 @@ with open(pkl_filename, 'rb') as file:
 #   returning True if x corresponds to an apple and False if it corresponds to a
 #   pear
 # Effects: Calls the .predict() method of object train_model
-# predict: float -> Bool
+# predict: Float -> Bool
 # Examples:
 #   predict(1) => True
 #   predict(2) => False
@@ -49,9 +49,9 @@ def preProcess(img):
 
 # main() is a method for recognizing whether a picture is that of an apple
 #      or that of a pear
-# Effects: Reads file 'path_to_img' passed from command line. If "--leaf" flag is one, create mask to occult leaf.
-#      Prints "This is probably an apple" or "This is probably a pear" and shows cutout version of fruit with a
-#      bounding box.
+# Effects: Reads file 'path_to_img' passed from command line. If "--leaf" flag is on, create mask to occult leaf.
+#      Prints "This is probably an apple" or "This is probably a pear" and shows a
+#      bounding rectangle overlayed on the original picture.
 # main: None -> None
 # Examples:
 #   For args.path_to_img = Test_Examples/apple0.jpg => Shows picture, prints "This is probably an
@@ -118,7 +118,7 @@ def main():
     contours, _ = cv2.findContours(cutout, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(mask, [max(contours, key = cv2.contourArea)], -1, 255, thickness=-1)
 
-    # Find bounding rect. and return prediction of apple/pear based on the
+    # Find bounding rectangle and return prediction of apple/pear based on the
     # ratio of its sides
     rect = cv2.minAreaRect(max(contours, key = cv2.contourArea))
     ratio = rect[1][0] / rect[1][1]
@@ -130,7 +130,7 @@ def main():
         print("This is probably a pear")
 
 
-    # Draw cutout with bounding rect.
+    # Show picture with bounding rectangle
     box = cv2.boxPoints(rect)
     box = np.int0(box)
     cv2.drawContours(img,[box], 0, (0, 0, 255), 2)
